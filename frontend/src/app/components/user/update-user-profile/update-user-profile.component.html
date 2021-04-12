@@ -1,0 +1,77 @@
+    <form *ngIf="userRole === 'hotels'" [formGroup]="hotelForm" (ngSubmit)="updateHotel()">
+        <div class="container">
+                    <h2>reserved date : {{reserveddate}}</h2>
+                    <h2>reserved cars:</h2>
+
+                    <div class="w-100 d-flex justify-content-between">
+                    <ul class="w-100 d-flex flex-column align-items-center">
+                        <li class="d-flex align-items-center w-100 justify-content-between mt-3" *ngFor="let carnum of reservedCarNumbers">
+                            <h4 class="mb-0">car number: <strong>{{carnum}}</strong></h4>
+                            <button class="btn btn-danger btn-sm">remove car</button>
+                        </li>
+                    </ul>
+                     </div>
+                    <mat-form-field>
+                        <input matInput placeholder="Name" formControlName="name">
+                    </mat-form-field>
+    
+    
+                    <mat-form-field>
+                        <input matInput placeholder="open hour" formControlName="openhour">
+                    </mat-form-field>
+    
+    
+                    <mat-form-field>
+                        <input matInput placeholder="close hour" formControlName="closehour">
+                    </mat-form-field>
+    
+    
+                    <mat-form-field>
+                        <input matInput placeholder="email" formControlName="email">
+                    </mat-form-field>
+
+            <button class="btn " color="primary" [disabled]="!hotelForm.valid" type="submit">Update Profile</button>
+            <button class="btn" mat-dialog-close>close</button>
+
+        </div>
+    </form>
+
+
+    <form *ngIf="userRole === 'customers'" [formGroup]="customerForm" (ngSubmit)="updateCustomer()">
+        <div *ngIf="reserveddate">
+            <h2>reserved date : {{reserveddate}}</h2>
+            <h3>reserved hotel: {{reservedHotelName}}</h3>
+            <h3>hotel column index: {{reservedHotelColumnIndex}}</h3>
+            <button class="btn" type="button" (click)="removeReservation()">delete reservation</button>
+        </div>
+       
+
+        <div class="container">
+                    <mat-form-field>
+                        <input matInput placeholder="first name" formControlName="firstname">
+                    </mat-form-field>
+    
+    
+                    <mat-form-field>
+                        <input matInput placeholder="last name" formControlName="lastname">
+                    </mat-form-field>
+    
+    
+                    <mat-form-field>
+                        <input matInput placeholder="car number" formControlName="carnumber">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput placeholder="battary" formControlName="battary">
+                    </mat-form-field>
+    
+    
+                    <mat-form-field>
+                        <input matInput placeholder="email" formControlName="email">
+                    </mat-form-field>
+
+            <button class="btn " color="primary" [disabled]="!customerForm.valid" type="submit">Update Profile</button>
+            <button class="btn" mat-dialog-close>close</button>
+
+        </div>
+    </form>

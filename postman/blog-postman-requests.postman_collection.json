@@ -1,0 +1,948 @@
+{
+	"info": {
+		"_postman_id": "f15d9f60-cf3b-4dbd-a88e-93759622ab7a",
+		"name": "Cleverroute",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Station",
+			"item": [
+				{
+					"name": "FindOne() Station Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/blog-entries/14",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"blog-entries",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All StationEntries by UserId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/blog-entries/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"blog-entries",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Station Entry (Jwt Protected)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoidXBkYXRlZE5hbWU2IiwidXNlcm5hbWUiOiJ1cGRhdGVkVXNlcm5hbWUiLCJlbWFpbCI6InRob21hc0B0ZXN0NS5kZSIsInJvbGUiOiJhZG1pbiIsInByb2ZpbGVJbWFnZSI6IlRodW1ibmFpbE5FVTI4OGJjZTI4LTNhYTUtNDNiNy1hODQ4LTg2MzBjMmY1N2MzZC5wbmcifSwiaWF0IjoxNTk2NTYwNDQ1LCJleHAiOjE1OTY1NzA0NDV9.yy7iQpGGNKj9_L0MVxZbNFeEhVJzLRsH0S5kYO5Zavg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/blog-entries/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"blog-entries",
+								"15"
+							]
+						},
+						"description": "Only the author of a blog entry can delete the blogEntry"
+					},
+					"response": []
+				},
+				{
+					"name": "[Station-Entry] Download Image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/blog-entries/image/Download770320c0-2b30-443a-8c14-2d58f58e7279.jpg",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"blog-entries",
+								"image",
+								"Download770320c0-2b30-443a-8c14-2d58f58e7279.jpg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get StationEntries by user (with query Param)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/blog-entries/user/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"blog-entries",
+								"user",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All StationEntries Paginated",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [],
+							"options": {
+								"urlencoded": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/blog-entries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"blog-entries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update StationEntry (protected by jwt)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJuYW1lIjoibWFycmlvdCIsImFkZHJlc3MiOiJuZ2UtQmVpc2hlaW0tUGxhdHoiLCJvcGVuaG91ciI6IjZhbSIsImNsb3NlaG91ciI6IjExcG0iLCJjaGFyZ2luZ2NvbHVtbiI6IjUiLCJjaGFyZ2luZ3NwZWVkIjoiMSIsImVtYWlsIjoibWFycmlvdEBtYWlsLmNvbSIsInJvbGUiOiJob3RlbCIsInByb2ZpbGVJbWFnZSI6bnVsbH0sImlhdCI6MTYwNTQyNDc5NCwiZXhwIjoxNjA1NDM0Nzk0fQ.DopBCntGQxWnImgzPaTwgrzpphyK0g6fC32IGzpOU7k",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"asdasda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/blog-entries/status/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"blog-entries",
+								"status",
+								"2"
+							]
+						},
+						"description": "Only the author can update a blogEntry"
+					},
+					"response": []
+				},
+				{
+					"name": "[Station-Entry] Upload Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoidXBkYXRlZE5hbWU2NTU1YWEiLCJ1c2VybmFtZSI6InVwZGF0ZWRVc2VybmFtZWQiLCJlbWFpbCI6InRob21hc0B0ZXN0NS5kZSIsInJvbGUiOiJhZG1pbiIsInByb2ZpbGVJbWFnZSI6ImJpZ2ZpbGUwOWQxNTY0Ny0wMzBlLTRlMzEtODFmYy0yZmMzNGVhMjQ2MmUucG5nIn0sImlhdCI6MTU5NzU3ODM1MywiZXhwIjoxNTk3NTg4MzUzfQ.VxwfuFApPlfeGCV4QH3gxICQQZWnkhJx4oHTrcvYuck",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/thoma/OneDrive/Bilder/test images/Download.jpg"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/blog-entries/image/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"blog-entries",
+								"image",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Station (jwt needed)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJuYW1lIjoibWFycmlvdCIsImFkZHJlc3MiOiJuZ2UtQmVpc2hlaW0tUGxhdHoiLCJvcGVuaG91ciI6IjZhbSIsImNsb3NlaG91ciI6IjExcG0iLCJjaGFyZ2luZ2NvbHVtbiI6IjUiLCJjaGFyZ2luZ3NwZWVkIjoiMSIsImVtYWlsIjoibWFycmlvdDFAbWFpbC5jb20iLCJyb2xlIjoiaG90ZWwiLCJwcm9maWxlSW1hZ2UiOm51bGx9LCJpYXQiOjE2MDU0MjU0NTEsImV4cCI6MTYwNTQzNTQ1MX0.xEWD-58OfXidgdTpCqCQlS_Cr5BGBXOLCpTHFeQVAdE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"reserved\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/blog-entries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"blog-entries"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0ea589ea-a653-4b93-b3d1-9571096b9433",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "02f1b097-bcd8-4912-9a0d-6e60ea189e0e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Get Single user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/customers/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download Prfoile Image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/customers/profile-image/ThumbnailNEU288bce28-3aa5-43b7-a848-8630c2f57c3d.png",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers",
+								"profile-image",
+								"ThumbnailNEU288bce28-3aa5-43b7-a848-8630c2f57c3d.png"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Customers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoiVGhvbWFzIFRlc3QiLCJ1c2VybmFtZSI6IlRob21hczUiLCJlbWFpbCI6InRob21hc0B0ZXN0NS5kZSIsInJvbGUiOiJhZG1pbiJ9LCJpYXQiOjE1OTAwNzc2NzMsImV4cCI6MTU5MDA4NzY3M30.mlK5PEO-GrXtUJ_Px8ja2-G5XSxTEOamiwCj_9jUUUY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete One",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoidXBkYXRlZE5hbWU2IiwidXNlcm5hbWUiOiJ1cGRhdGVkVXNlcm5hbWUiLCJlbWFpbCI6InRob21hc0B0ZXN0NS5kZSIsInJvbGUiOiJhZG1pbiIsInByb2ZpbGVJbWFnZSI6IlRodW1ibmFpbE5FVTI4OGJjZTI4LTNhYTUtNDNiNy1hODQ4LTg2MzBjMmY1N2MzZC5wbmcifSwiaWF0IjoxNTk2NTU5MzU0LCJleHAiOjE1OTY1NjkzNTR9.4-YNmRkNEkBVM9YvCtmDYeYMIJFhCMkemM-w7DwgOWc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/14",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"merriot@mail.com\",\n\t\"password\": \"asd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/hotels/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hotels",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Profile Picture (with form-data and jwt)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoidXBkYXRlZE5hbWU1IiwidXNlcm5hbWUiOiJ1cGRhdGVkVXNlcm5hbWUiLCJlbWFpbCI6InRob21hc0B0ZXN0NS5kZSIsInJvbGUiOiJhZG1pbiIsInByb2ZpbGVJbWFnZSI6IlRodW1ibmFpbE5FVWExZDY3OTNhLWRjY2MtNDU0Mi1hNzcyLTFlN2JkMjJiZWU4ZS5wbmcifSwiaWF0IjoxNTk1MDU3NzI1LCJleHAiOjE1OTUwNjc3MjV9.LkCfWm7G3_VO1z5wzy_lgpQMZVKxHmbJL-VkDYbeujU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/thoma/Videos/youtube-public/blog-public/14/Thumbnail NEU.png"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"customername\": \"gvinianidzegivi\",\n\t\"firstname\": \"givi\",\n\t\"lastname\": \"gvinianidze\",\n\t\"email\": \"gvinianidzegivi@gmail.com\",\n\t\"carnumber\": \"ev412ve\",\n\t\"consumptionavg\": \"100\",\n\t\"battarycapacity\": \"100\",\n\t\"chargingspeed\": \"60\",  \n    \"password\": \"CassiusAli1q\",\n\t\"role\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/customers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update One",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoidXBkYXRlZE5hbWUzIiwidXNlcm5hbWUiOiJ1cGRhdGVkVXNlcm5hbWUiLCJlbWFpbCI6InRob21hc0B0ZXN0NS5kZSIsInJvbGUiOiJhZG1pbiIsInByb2ZpbGVJbWFnZSI6IlRodW1ibmFpbE5FVWExZDY3OTNhLWRjY2MtNDU0Mi1hNzcyLTFlN2JkMjJiZWU4ZS5wbmcifSwiaWF0IjoxNTk0MDY2NTQyLCJleHAiOjE1OTQwNzY1NDJ9.Fhq4Dwiphc87fj-WDtmVXQUQhOkwbCCKjHfdKQGUKHE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"updatedName5\",\n\t\"username\": \"updatedUsername\",\n\t\"email\": \"shouldNotWork\",\n\t\"password\": \"shouldNotwork\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/customer/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customer",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Role of User (Protected with JWT and Role)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoiVGhvbWFzIFRlc3QiLCJ1c2VybmFtZSI6IlRob21hczUiLCJlbWFpbCI6InRob21hc0B0ZXN0NS5kZSIsInJvbGUiOiJhZG1pbiJ9LCJpYXQiOjE1OTAwOTA2OTIsImV4cCI6MTU5MDEwMDY5Mn0.fecCSraKPluFP0oDHOjkKfP2jf-YWBMUIySSp2WjEc0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"role\": \"editor\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/customers/3/role",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers",
+								"3",
+								"role"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "3e39949e-e81c-4b61-b4d9-58999290edf1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "20894dfa-8b33-4601-906d-f44d0c464d80",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Hotel",
+			"item": [
+				{
+					"name": "Get Single user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/hotels/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hotels",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download Prfoile Image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/profile-image/ThumbnailNEU288bce28-3aa5-43b7-a848-8630c2f57c3d.png",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"profile-image",
+								"ThumbnailNEU288bce28-3aa5-43b7-a848-8630c2f57c3d.png"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Hotels",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoiVGhvbWFzIFRlc3QiLCJ1c2VybmFtZSI6IlRob21hczUiLCJlbWFpbCI6InRob21hc0B0ZXN0NS5kZSIsInJvbGUiOiJhZG1pbiJ9LCJpYXQiOjE1OTAwNzc2NzMsImV4cCI6MTU5MDA4NzY3M30.mlK5PEO-GrXtUJ_Px8ja2-G5XSxTEOamiwCj_9jUUUY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/hotels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hotels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete One",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoidXBkYXRlZE5hbWU2IiwidXNlcm5hbWUiOiJ1cGRhdGVkVXNlcm5hbWUiLCJlbWFpbCI6InRob21hc0B0ZXN0NS5kZSIsInJvbGUiOiJhZG1pbiIsInByb2ZpbGVJbWFnZSI6IlRodW1ibmFpbE5FVTI4OGJjZTI4LTNhYTUtNDNiNy1hODQ4LTg2MzBjMmY1N2MzZC5wbmcifSwiaWF0IjoxNTk2NTU5MzU0LCJleHAiOjE1OTY1NjkzNTR9.4-YNmRkNEkBVM9YvCtmDYeYMIJFhCMkemM-w7DwgOWc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/14",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"marriot@mail.com\",\n\t\"password\": \"marriot123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Profile Picture (with form-data and jwt)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoidXBkYXRlZE5hbWU1IiwidXNlcm5hbWUiOiJ1cGRhdGVkVXNlcm5hbWUiLCJlbWFpbCI6InRob21hc0B0ZXN0NS5kZSIsInJvbGUiOiJhZG1pbiIsInByb2ZpbGVJbWFnZSI6IlRodW1ibmFpbE5FVWExZDY3OTNhLWRjY2MtNDU0Mi1hNzcyLTFlN2JkMjJiZWU4ZS5wbmcifSwiaWF0IjoxNTk1MDU3NzI1LCJleHAiOjE1OTUwNjc3MjV9.LkCfWm7G3_VO1z5wzy_lgpQMZVKxHmbJL-VkDYbeujU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/thoma/Videos/youtube-public/blog-public/14/Thumbnail NEU.png"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new Hotel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"marriot\",\n\t\"address\": \"nge-Beisheim-Platz\",\n\t\"openhour\": \"6am\",\n\t\"closehour\": \"11pm\",\n\t\"chargingcolumn\": \"5\",\n\t\"chargingspeed\": \"1\",\n\t\"email\": \"marriot111@mail.com\",\n\t\"password\": \"marriot123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/hotels/register/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hotels",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update One",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoidXBkYXRlZE5hbWUzIiwidXNlcm5hbWUiOiJ1cGRhdGVkVXNlcm5hbWUiLCJlbWFpbCI6InRob21hc0B0ZXN0NS5kZSIsInJvbGUiOiJhZG1pbiIsInByb2ZpbGVJbWFnZSI6IlRodW1ibmFpbE5FVWExZDY3OTNhLWRjY2MtNDU0Mi1hNzcyLTFlN2JkMjJiZWU4ZS5wbmcifSwiaWF0IjoxNTk0MDY2NTQyLCJleHAiOjE1OTQwNzY1NDJ9.Fhq4Dwiphc87fj-WDtmVXQUQhOkwbCCKjHfdKQGUKHE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"updatedName5\",\n\t\"username\": \"updatedUsername\",\n\t\"email\": \"shouldNotWork\",\n\t\"password\": \"shouldNotwork\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Role of User (Protected with JWT and Role)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoiVGhvbWFzIFRlc3QiLCJ1c2VybmFtZSI6IlRob21hczUiLCJlbWFpbCI6InRob21hc0B0ZXN0NS5kZSIsInJvbGUiOiJhZG1pbiJ9LCJpYXQiOjE1OTAwOTA2OTIsImV4cCI6MTU5MDEwMDY5Mn0.fecCSraKPluFP0oDHOjkKfP2jf-YWBMUIySSp2WjEc0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"role\": \"editor\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/3/role",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"3",
+								"role"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fea406bb-5709-4513-8208-8fa675a67c9c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "fd75427b-e15a-405e-8545-f37e64c3eb5c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

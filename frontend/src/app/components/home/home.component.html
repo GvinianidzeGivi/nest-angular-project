@@ -1,0 +1,121 @@
+
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <div class="d-flex align-items-center justify-content-between w-100 w-md-0">
+  <a class="navbar-brand pl-2 logo font-weight-bold" routerLink="/home">ECOLIBRO</a>
+  <button class="navbar-toggler" type="button" (click)="toggleNav()" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</div>
+  <div class="collapse navbar-collapse" [class.show]="isActive" id="navbarsExample04">
+    <ul class="d-flex w-100 justify-content-between">
+      <li class="nav-item active">
+        <a class="nav-link mx-md-2 px-2 d-flex flex-column" (click)="openDatenschutz()"><i class="fas fa-lock"></i> <span class="">Datenschutz</span></a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link mx-md-2 px-2 d-flex flex-column" href="https://www.ev-akademie-boll.de/nc/service/mitfahrboerse.html" target="_blank" ><i class="fas fa-thumbs-up"></i> <span class="">Mitfahrbörse</span></a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link mx-md-2 px-2 d-flex flex-column" href="https://www.ecolibro.de/de/Impressum" target="_blank"><i class="fas fa-file-signature"></i> <span class="">Impressium</span></a>
+      </li>
+<!-- 
+      <li class="nav-item active" *ngIf="userRole === 'hotels' && isAuth()">
+        <a  class="nav-link mx-md-2 px-2 d-flex flex-column" (click)="openAddStation()"><i class="fas fa-charging-station"></i> <span class="">add</span></a>
+      </li> -->
+      <li class="nav-item active" *ngIf="!isAuth()">
+        <a  class="nav-link mx-md-2 px-2 d-flex flex-column" (click)="openLogin()"><i class="fas fa-sign-in-alt"></i> <span class="">Login</span></a>
+      </li>
+      <li class="nav-item active" *ngIf="!isAuth()">
+        <a  class="nav-link mx-md-2 px-2 d-flex flex-column" (click)="openRegister()"><i class="fas fa-user-plus"></i> <span class="">Register</span></a>
+      </li>
+      <li class="nav-item active" *ngIf="isAuth()">
+        <a  class="nav-link mx-md-2 px-2 d-flex flex-column" (click)="openEdit()"><i class="fas fa-user"></i> <span class="">profile</span></a>
+      </li>
+      <li class="nav-item active" *ngIf="isAuth()">
+        <a  class="nav-link mx-md-2 px-2 d-flex flex-column" (click)="logout()"><i class="fas fa-door-open"></i> <span class="">Logout</span></a>
+      </li>
+    </ul>  
+  </div>
+  
+</nav>
+
+<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="8" [scrollwheel]="false">
+    <agm-marker (markerClick)="getCustomerData(hotel.id)" *ngFor="let hotel of hotels" [latitude]="hotel.lat" [longitude]="hotel.long"
+      [iconUrl]="hotel.isreserved ? freeIcon : reservedIcon">
+      <agm-info-window >   
+        <h3 class="text-center mb-1">Hotel: <strong class="text-warning" style="text-transform:uppercase;">{{hotel.name}}</strong> </h3>
+        <p class="text-center mt-1 mb-2">working hours</p>
+        <p class="d-flex align-items-center justify-content-center text-center"><i style="color: #646263" class="fas fa-clock"></i> {{hotel.openhour}} to {{hotel.closehour}}</p>
+        <!-- <div (click)="getStationId(hotel.id)" Xclass="border"> -->
+          <!-- <span *ngIf="today == station.paragraphs[1]">reserved by {{station.paragraphs[0]}}</span> -->
+          <!-- <p class="text-center">Column: {{station.id}}</p> -->
+              <!-- {{station.email}} -->
+              <!-- {{hotel.chargingcolumn}} -->
+    
+            <div *ngFor="let column of hotel.column; let in = index">
+              <p class="d-flex align-items-center justify-content-around text-center px-5 py-4 bg-warning mb-0"><i style="color: #646263" class="fas fa-tachometer-alt"></i>
+                 {{column}}h
+              </p>
+              <div class="d-flex mt-3">
+              <button *ngIf="userRole && isAuth()" class=" btn btn-dark btn-sm m-auto" [disabled]="hotel.isreserved" (click)="openReserveForm(in)">reserve</button>
+              </div>
+              <h5 *ngIf="userRole === 'customers' && isAuth()" class="text-center">
+                <ul>
+                  <li *ngFor="let data of user">
+                    <!-- {{distance}}
+                    {{data.avarage}}
+                    {{data.chargingspeed}}
+                    {{column}} -->
+                    {{(distance * data.avarage) / math.min(data.chargingspeed, column) | rounder }} minute for charge
+                  </li>
+                </ul>
+              </h5> 
+              <h5 class="text-warning text-center" *ngIf="!isAuth()">Register to reserve station</h5>
+
+            </div>
+        <!-- </div> -->
+      </agm-info-window>
+    </agm-marker>
+</agm-map> 
+
+
+<div class="container-fluid">
+  <div class="row partners pt-3">
+    <div class="col d-flex align-items-center justify-content-center">
+      <a href="https://demo.cleverroute.net/" target="_blank">
+      <div class="img-wrapper">
+        <img src="../../../assets/images/logo-1.png" alt="cleverroute">
+      </div>
+    </a>
+    </div>
+    <div class="col d-flex align-items-center justify-content-center">
+      <a href="https://www.ev-akademie-boll.de/home.html" target="_blank">
+      <div class="img-wrapper">
+        <img src="../../../assets/images/logo-2.png" alt="akademie">
+      </div>
+    </a>
+    </div>
+    <div class="col d-flex align-items-center justify-content-center">
+      <a href="http://www.gemeinsam-weiterkommen.de/" target="_blank">
+      <div class="img-wrapper">
+        <img src="../../../assets/images/logo-3.png" alt="gemeinsam">
+      </div>
+    </a>
+    </div>
+    <div class="col d-flex align-items-center justify-content-center">
+      <a href="https://mobil-gewinnt.de/" target="_blank">
+      <div class="img-wrapper">
+        <img src="../../../assets/images/logo-4.png" alt="gewinnt">
+      </div>
+      </a>
+    </div>
+    <div class="col d-flex align-items-center justify-content-center">
+      <a href="https://www.bmvi.de/DE/Home/home.html" target="_blank">
+      <div class="img-wrapper">
+        <img src="../../../assets/images/logo-5.png" alt="bmvi">
+      </div>
+      </a>
+    </div>
+  </div>
+</div>

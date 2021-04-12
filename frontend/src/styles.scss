@@ -1,0 +1,145 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+* {
+    user-select: none;
+    outline: none;
+}
+html, body { height: 100%; background-color: #FBFBFB;}
+body { margin: 0; font-family: 'Josefin Sans', sans-serif !important;}
+img {width: 100%; height: auto;}
+input {border: none; outline: none;}
+button {border:none; background: none;}
+ul {list-style: none; padding: 0; margin: 0;}
+p { margin-bottom: 0;}
+nav {
+    // height: 100%;
+    color: black;
+    border-right: 2px solid #E1E5EC;
+    
+    .nav-link {
+        // color: #D9DDE3;
+        font-size: 12px;
+        text-align: center;
+        display: flex;
+        // justify-content: space-around;
+        align-items: center;
+    }
+    .btn {
+        font-size: 12px;
+        // color: #CBD1D8;
+    }
+   
+}
+
+.nav-content {
+    .nav-link {
+        filter: grayscale(100%);
+        &:hover {
+            color: #319076;
+            transition: 1s;
+            filter: grayscale(0);
+        }
+    }
+}
+.logo {
+    // color: #E4535B;
+    letter-spacing: 3px;
+
+    span {
+        padding: 13px;
+        /* background-color: #E45360; */
+        color: #319076;
+        /* border-radius: 50px; */
+        margin-right: 5px;
+        font-weight: unset;
+        font-size: 20px;
+        border: 2px solid #319076;
+    }
+}
+.map-container {
+    filter: grayscale(100);
+    border-top: 2px solid #E1E5EC;
+    transition: 1s;
+    &:hover {
+        filter: grayscale(0);
+    }
+}
+
+
+// .fa-door-open {
+//     color: #319076;
+//     filter: grayscale(0) !important;
+// }
+
+.partners {
+    border-top: 2px solid #E1E5EC;
+    img {
+        filter: grayscale(100%);
+    }
+    
+    img:hover {
+        transition: 1s;
+        filter: grayscale(0);
+    }
+}
+// .grayscale {
+//     filter: grayscale(100%);   
+// }
+
+// .d-flex {
+//     display: flex;
+// }
+
+a {
+    cursor: pointer;
+    color: rgb(84 82 82 / 90%);
+}
+
+i {
+    font-size: 1.7em;
+}
+
+.active-link {
+    color: #319076 !important;
+    border-right:  5px solid #319076;
+    i {
+        color: #319076;
+    }
+
+}
+
+agm-map {
+    height: 75%;
+    color: #646263;
+    filter: grayscale(100);
+    &:hover {
+        filter: grayscale(0);
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    agm-map {
+    height: 68%;
+    }
+}
+
+.agm-info-window-content {
+    font-size: 15px;
+    font-weight: bold;
+    border: 5px solid;
+    border-radius: 5px;
+    // padding: 15px;
+}
+app-reserve {
+    display: flex;
+    flex-direction: column;
+}
+.show {
+    display: flex;
+}
+
+.navbar-brand {
+    letter-spacing: 20px;
+    color: #646263 !important;
+}
